@@ -30,22 +30,16 @@ class InvoiceService
 
     protected function setSignature()
     {
-        $SignatureString = $this->data['RevenueHeadId'].$this->formatAmount().$this->data['CallBackURL'].Cbs::getClientId();
+        $SignatureString = $this->data['RevenueHeadId'].$this->formatAmount($this->data['TaxEntityInvoice']['Amount']).$this->data['CallBackURL'].Cbs::getClientId();
         $this->signature = base64_encode(hash_hmac('sha256', $SignatureString, Cbs::getSecretKey(), true));
         $this->setRequestOptions();
     }
 
-    protected function formatAmount(): string
+    protected function formatAmount($amount): string
     {
-        return number_format((float) $this->data['TaxEntityInvoice']['Amount'], 2, '.', '');
+        return number_format((float) $amount, 2, '.', '');
     }
 
-    protected function computeMac($invoiceNumber, $paymentRef): string
-    {
-        $MacString = $invoiceNumber.ReferenceNumber::getHashedToken().$this->formatAmount().$this->result['ResponseObject']['RequestReference'];
-
-        return base64_encode(hash_hmac('sha256', $MacString, Cbs::getSecretKey(), true));
-    }
 
     /**
      * Set options for making the Client request.
@@ -88,7 +82,6 @@ class InvoiceService
 
         try {
             $this->result = $this->performPostRequest('/api/v1/invoice/create');
-            dd($this->result);
 
             return $this;
         } catch (Exception $exception) {
@@ -107,7 +100,20 @@ class InvoiceService
         exit;
     }
 
-    public function getPaymentData()
+    protected function computeMac($invoiceNumber, $paymentRef, $amount, $RequestReference): string
     {
+        $MacString = $invoiceNumber.$paymentRef.$this->formatAmount($amount).$RequestReference;
+
+        return base64_encode(hash_hmac('sha256', $MacString, Cbs::getSecretKey(), true));
+    }
+
+    public function getPaymentData(): array
+    {
+        $mac = $this->computeMac($_POST['InvoiceNumber'], $_POST['PaymentRef'], $_POST['AmountPaid'], $_POST['RequestReference']);
+        if ($mac !== $_POST['Mac']) {
+            throw Exceptions::create('format.invalidCall');
+        } else {
+            return $_POST;
+        }
     }
 }
