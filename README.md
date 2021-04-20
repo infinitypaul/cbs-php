@@ -1,9 +1,12 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/infinitypaul/cbs-php.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/cbs-php)
-[![Build Status](https://img.shields.io/travis/infinitypaul/cbs-php/master.svg?style=flat-square)](https://travis-ci.org/infinitypaul/cbs-php)
-[![Quality Score](https://img.shields.io/scrutinizer/g/infinitypaul/cbs-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/infinitypaul/cbs-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/infinitypaul/cbs-php.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/cbs-php)
+[comment]: <> ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/infinitypaul/cbs-php.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/infinitypaul/cbs-php&#41;)
+
+[comment]: <> ([![Build Status]&#40;https://img.shields.io/travis/infinitypaul/cbs-php/master.svg?style=flat-square&#41;]&#40;https://travis-ci.org/infinitypaul/cbs-php&#41;)
+
+[comment]: <> ([![Quality Score]&#40;https://img.shields.io/scrutinizer/g/infinitypaul/cbs-php.svg?style=flat-square&#41;]&#40;https://scrutinizer-ci.com/g/infinitypaul/cbs-php&#41;)
+
+[comment]: <> ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/infinitypaul/cbs-php.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/infinitypaul/cbs-php&#41;)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
