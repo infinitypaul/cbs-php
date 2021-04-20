@@ -40,7 +40,6 @@ class InvoiceService
         return number_format((float) $amount, 2, '.', '');
     }
 
-
     /**
      * Set options for making the Client request.
      */
