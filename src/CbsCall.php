@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Infinitypaul\Cbs;
 
 /**
- *
  * @method mixed addBody($name, $value);
  */
 class CbsCall
