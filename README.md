@@ -18,7 +18,55 @@ composer require infinitypaul/cbs-php
 ## Usage
 
 ``` php
-// Usage description here
+Infinitypaul\Cbs\Cbs::setup([
+        'staging' => 'staging base url',
+        'live' => 'live base url'],
+        'Secrey Key',
+        'Client ID', 'Mode =  staging or live');
+        
+     //To redirect to CBS Payment Gateway   
+        \Infinitypaul\Cbs\CbsCall::addBody('RevenueHeadId', 1)
+        ->addBody('TaxEntityInvoice', [
+            'Amount' => 1000,
+            "InvoiceDescription" => "talosopekope",
+            "AdditionalDetails" => [],
+            "CategoryId" => 1,
+            "TaxEntity" => [
+            'Recipient' => 'Tax Payer',
+            'Email' => 'infinitypaul@live.com',
+            'Address' => 'api Local',
+            'PhoneNumber' => '0903636363',
+            'TaxPayerIdentificationNumber' => '736363',
+            'RCNumber' => null,
+            'PayerId' => null
+        ]])
+        ->addBody('ExternalRefNumber', 373737373)
+        ->addBody('RequestReference', 'jdjd783')
+        ->addBody('CallBackURL', 'https://coeakwanga.edu.ng/controller/plugin/cbs/verify.php')
+        ->getAuthorizationUrl()
+        ->redirectNow();
+        
+        //Get Data
+        \Infinitypaul\Cbs\CbsCall::addBody('RevenueHeadId', 1)
+        ->addBody('TaxEntityInvoice', [
+            'Amount' => 1000,
+            "InvoiceDescription" => "talosopekope",
+            "AdditionalDetails" => [],
+            "CategoryId" => 1,
+            "TaxEntity" => [
+            'Recipient' => 'Tax Payer',
+            'Email' => 'infinitypaul@live.com',
+            'Address' => 'api Local',
+            'PhoneNumber' => '0903636363',
+            'TaxPayerIdentificationNumber' => '736363',
+            'RCNumber' => null,
+            'PayerId' => null
+        ]])
+        ->addBody('ExternalRefNumber', 373737373)
+        ->addBody('RequestReference', 'jdjd783')
+        ->addBody('CallBackURL', 'https://coeakwanga.edu.ng/controller/plugin/cbs/verify.php')
+        ->getAuthorizationUrl()
+        ->getData();
 ```
 
 ### Testing
@@ -47,7 +95,3 @@ If you discover any security related issues, please email infinitypaul@live.com 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com).
