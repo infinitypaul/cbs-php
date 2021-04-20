@@ -1,4 +1,4 @@
-# Very short description of the package
+# CBS FOR PHP
 
 [comment]: <> ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/infinitypaul/cbs-php.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/infinitypaul/cbs-php&#41;)
 
@@ -8,7 +8,7 @@
 
 [comment]: <> ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/infinitypaul/cbs-php.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/infinitypaul/cbs-php&#41;)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+A PHP Package for working with central billing system seamlessly
 
 ## Installation
 
