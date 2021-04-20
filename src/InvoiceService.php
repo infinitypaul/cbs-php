@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Infinitypaul\Cbs;
-
 
 use Exception;
 use GuzzleHttp\Client;
-
 
 class InvoiceService
 {
@@ -22,7 +19,6 @@ class InvoiceService
 
     public function __construct()
     {
-
     }
 
     public function addBody($name, $value): InvoiceService
@@ -31,7 +27,6 @@ class InvoiceService
 
         return $this;
     }
-
 
     protected function setSignature()
     {
@@ -82,7 +77,6 @@ class InvoiceService
         return $this->getResponse();
     }
 
-
     private function getResponse()
     {
         return json_decode($this->response->getBody(), true);
@@ -100,10 +94,10 @@ class InvoiceService
         } catch (Exception $exception) {
             throw new Exception($exception->getMessage());
         }
-
     }
 
-    public function getData(){
+    public function getData()
+    {
         return $this->result;
     }
 
@@ -115,6 +109,5 @@ class InvoiceService
 
     public function getPaymentData()
     {
-
     }
 }

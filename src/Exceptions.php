@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Cbs;
-
 
 use Exception;
 
